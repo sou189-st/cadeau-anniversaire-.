@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made Just For You</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fce4ec;
+            color: #880e4f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff0f5;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 2px solid #f48fb1;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            font-size: 2rem;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            background-color: #f8bbd0;
+        }
+
+        .content-area {
+            display: none;
+            background: #white;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #f48fb1;
+            margin-top: 15px;
+        }
+
+        .back-btn {
+            background-color: #f48fb1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .back-btn:hover {
+            background-color: #ec407a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="main-menu">
+        <h1>Made just for you 💖</h1>
+        <p>Tap a card to open your surprise ✨</p>
+        
+        <div class="card-grid">
+            <div class="card" onclick="showContent('photos')">📷</div>
+            <div class="card" onclick="showContent('letter')">✉️</div>
+            <div class="card" onclick="showContent('bouquet')">💐</div>
+            <div class="card" onclick="showContent('plans')">🎀</div>
+        </div>
+    </div>
+
+    <div id="content-display" class="content-area">
+        <div id="content-text"></div>
+        <button class="back-btn" onclick="showMenu()">🏠 Home</button>
+    </div>
+</div>
+
+<script>
+    const contents = {
+        photos: "<h3>Captured Memories 📸</h3><p>Add your favorite photos or photo strip memories here!</p>",
+        letter: "<h3>My Love 💌</h3><p>I feel so lucky to walk through life with you by my side. You make ordinary days feel meaningful. Wish all my love!</p>",
+        bouquet: "<h3>A Bouquet Just For You 🌹</h3><p>Every day with you feels like a blessing. Loving you is the easiest thing I've ever done.</p>",
+        plans: "<h3>Our Future Plans 💭</h3><p>1. The First Hug<br>2. Our Little Home<br>3. Side by Side</p>"
+    };
+
+    function showContent(key) {
+        document.getElementById('main-menu').style.display = 'none';
+        document.getElementById('content-text').innerHTML = contents[key];
+        document.getElementById('content-display').style.display = 'block';
+    }
+
+    function showMenu() {
+        document.getElementById('content-display').style.display = 'none';
+        document.getElementById('main-menu').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
